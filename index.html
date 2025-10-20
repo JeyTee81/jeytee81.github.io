@@ -7,30 +7,39 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Base */
     * {margin:0; padding:0; box-sizing:border-box;}
     body {
       font-family: 'Inter', sans-serif;
-      background: #0d1117;
-      color: #c9d1d9;
+      background:#0d1117;
+      color:#c9d1d9;
       line-height:1.6;
-      background-image: repeating-linear-gradient(
-        0deg,
-        rgba(255,255,255,0.02),
-        rgba(255,255,255,0.02) 1px,
-        transparent 1px,
-        transparent 20px
-      ), repeating-linear-gradient(
-        90deg,
-        rgba(255,255,255,0.02),
-        rgba(255,255,255,0.02) 1px,
-        transparent 1px,
-        transparent 20px
-      );
+      overflow-x:hidden;
     }
     a {text-decoration:none; color: inherit;}
     h1,h2,h3 {font-weight:700;}
     html {scroll-behavior: smooth;}
+
+    /* Code background animation */
+    .code-bg {
+      position:fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      z-index:-1;
+      font-family: monospace;
+      font-size:12px;
+      color: rgba(88,166,255,0.05);
+      white-space: pre;
+      overflow:hidden;
+      pointer-events:none;
+    }
+    .code-line {
+      display:block;
+      animation: scrollCode 10s linear infinite;
+    }
+    @keyframes scrollCode {
+      0% { transform: translateY(100%);}
+      100% { transform: translateY(-100%);}
+    }
 
     /* Container */
     .container {max-width:1200px; margin:0 auto; padding:40px 20px;}
@@ -94,6 +103,9 @@
 </head>
 <body>
 
+  <!-- Code background -->
+  <div class="code-bg" id="code-bg"></div>
+
   <!-- Header / Intro -->
   <header id="header">
     <img src="selfie.jpeg" alt="Jérôme Trébouclet">
@@ -106,7 +118,6 @@
     <h2>Mes Projets</h2>
     <div class="container projects-grid">
 
-      <!-- Projet Bookworm -->
       <div class="card">
         <img src="assets/bookworm_screenshot.png" alt="Bookworm">
         <h3>📚 Bookworm</h3>
@@ -115,7 +126,6 @@
         <a href="#" target="_blank" rel="noopener noreferrer">Démo</a>
       </div>
 
-      <!-- Projet EasyRest -->
       <div class="card">
         <img src="assets/easyrest_screenshot.png" alt="EasyRest Tablette">
         <h3>📱 EasyRest</h3>
@@ -138,7 +148,6 @@
     © 2025 Jérôme Trébouclet – Tous droits réservés
   </footer>
 
-  <!-- JS pour typed header + fade-in -->
   <script>
     // Fade-in du header
     const header = document.getElementById('header');
@@ -169,6 +178,14 @@
       }
     }
     window.addEventListener('load', typeWriter);
+
+    // Code background
+    const codeBg = document.getElementById('code-bg');
+    const codeLines = [];
+    for(let i=0; i<50; i++){
+      codeLines.push('<span class="code-line">console.log("Hello World ' + i + '");</span>');
+    }
+    codeBg.innerHTML = codeLines.join('');
   </script>
 
 </body>
