@@ -3,60 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - [Prénom Nom]</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f8f8;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #1f2937;
-      color: white;
-      text-align: center;
-      padding: 2rem;
-    }
-    section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
-    .project {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      padding: 1rem;
-      margin-bottom: 1rem;
-    }
-    a {
-      color: #2563eb;
-    }
-  </style>
+  <title>Portfolio – [Jérôme TREBOUCLET]</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <h1>[Prénom Nom]</h1>
-    <p>Développeur web en reconversion</p>
-    <p><a href="https://linkedin.com/in/tonprofil" style="color:white;">LinkedIn</a> | <a href="https://github.com/tonprofil" style="color:white;">GitHub</a></p>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-gray-900 text-white py-10">
+    <div class="max-w-5xl mx-auto text-center">
+      <img src="https://avatars.githubusercontent.com/u/9919?v=4" alt="Photo de profil" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-blue-500">
+      <h1 class="text-4xl font-bold mb-2">[Jérôme TREBOUCLET]</h1>
+      <p class="text-lg mb-4">Développeur – Passionné par la création d’applications utiles</p>
+      <div class="space-x-4">
+        <a href="https://github.com/jeytee81" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">GitHub</a>
+        <a href="https://linkedin.com/in/jerome-trebouclet" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded">LinkedIn</a>
+        <a href="mailto:jerome.trebouclet@gmail.com" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded">Contact</a>
+      </div>
+    </div>
   </header>
 
-  <section>
-    <h2>Mes projets</h2>
+  <!-- À propos -->
+  <section id="about" class="max-w-4xl mx-auto py-12 px-6">
+    <h2 class="text-2xl font-bold mb-4 text-blue-600">À propos</h2>
+    <p class="text-lg leading-relaxed">
+      Après 30 ans dans la restauration, j’ai choisi de me reconvertir dans le développement web. 
+      Aujourd’hui, je conçois des applications intuitives et performantes, avec une approche centrée sur l’utilisateur. 
+      Curieux, rigoureux et motivé, je cherche à rejoindre une équipe où je pourrais apprendre et contribuer à des projets concrets.
+    </p>
+  </section>
 
-    <div class="project">
-      <h3>📚 Bookworm</h3>
-      <p>Application de gestion de bibliothèque avec OCR et intégration Google Books.</p>
-      <a href="https://github.com/tonprofil/bookworm">→ Voir sur GitHub</a> | 
-      <a href="https://demo-link.com">→ Démo</a>
-    </div>
+  <!-- Projets -->
+  <section id="projects" class="bg-white py-12">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-2xl font-bold mb-8 text-blue-600">Mes projets</h2>
 
-    <div class="project">
-      <h3>🍽️ Gestion Restaurant</h3>
-      <p>Outil interne pour gérer les stocks et les réservations d’un restaurant.</p>
-      <a href="https://github.com/tonprofil/restaurant-app">→ Voir sur GitHub</a>
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Projet 1 -->
+        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold mb-2">📚 Bookworm</h3>
+          <p class="mb-4 text-gray-700">
+            Application de gestion de bibliothèque avec reconnaissance OCR et intégration Google Books.
+          </p>
+          <div class="flex gap-3">
+            <a href="https://github.com/tonprofil/bookworm" class="text-blue-600 font-medium hover:underline">Voir le code</a>
+            <a href="#" class="text-blue-600 font-medium hover:underline">Démo</a>
+          </div>
+        </div>
+
+        <!-- Projet 2 -->
+        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold mb-2">🍽️ Gestion Restaurant</h3>
+          <p class="mb-4 text-gray-700">
+            Outil interne pour gérer tous les aspects d'un bar ou restaurant (personnel, stocks, menus, salles, tables, caisse...).
+          </p>
+          <div class="flex gap-3">
+            <a href="https://github.com/tonprofil/restaurant-app" class="text-blue-600 font-medium hover:underline">Voir le code</a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
+
+  <!-- Contact -->
+  <section id="contact" class="max-w-4xl mx-auto py-12 px-6">
+    <h2 class="text-2xl font-bold mb-4 text-blue-600">Me contacter</h2>
+    <p class="text-lg mb-6">N’hésitez pas à me contacter pour échanger sur un projet ou une opportunité :</p>
+    <a href="mailto:email@example.com" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium">
+      📧 email@example.com
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 text-center py-6">
+    <p>© 2025 [Prénom Nom] – Portfolio personnel</p>
+  </footer>
+
 </body>
 </html>
