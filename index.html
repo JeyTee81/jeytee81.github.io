@@ -1,84 +1,103 @@
-ee81<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio – Jérôme TREBOUCLET</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 text-gray-800">
+  <title>Portfolio - Jérôme Trébouclet</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {font-family: 'Inter', sans-serif; background: #f4f4f9; color: #1f1f1f; line-height:1.6;}
+    a {text-decoration:none; color: inherit;}
+    h1,h2,h3 {font-weight:700;}
 
-  <!-- Header -->
-  <header class="bg-gray-900 text-white py-10">
-    <div class="max-w-5xl mx-auto text-center">
-      <img src="selfie.jpeg" alt="Photo de profil" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-blue-500">
-      <h1 class="text-4xl font-bold mb-2">Jérôme TREBOUCLET</h1>
-      <p class="text-lg mb-4">Développeur – Passionné par la création d’applications utiles</p>
-      <div class="space-x-4">
-        <a href="CV CDA.pdf" target="_blank" class="bg-gray-700 px-4 py-2 rounded">Mon CV</a>
-        <a href="https://github.com/jeytee81" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">GitHub</a>
-        <a href="https://linkedin.com/in/jerome-trebouclet" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded">LinkedIn</a>
-        <a href="mailto:jerome.trebouclet@gmail.com" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded">Contact</a>
-      </div>
-    </div>
+    /* Container */
+    .container {max-width:1200px; margin:0 auto; padding:40px 20px;}
+
+    /* Header / Intro */
+    header {text-align:center; padding:80px 20px 60px;}
+    header h1 {font-size:2.8rem; color:#5a2ea6; margin-bottom:20px;}
+    header p {font-size:1.2rem; color:#333;}
+
+    /* Section Titles */
+    section h2 {text-align:center; font-size:2rem; margin-bottom:40px; color:#5a2ea6;}
+
+    /* Projects Grid */
+    .projects-grid {display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:30px;}
+
+    /* Project Card */
+    .card {
+      background:#fff; padding:20px; border-radius:12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15);}
+    .card img {width:100%; border-radius:8px; margin-bottom:15px;}
+    .card h3 {margin-bottom:10px; font-size:1.3rem; color:#333;}
+    .card p {font-size:0.95rem; color:#555; margin-bottom:15px;}
+    .card a {
+      display:inline-block; padding:8px 15px; margin-right:8px;
+      background:#5a2ea6; color:#fff; border-radius:6px; font-weight:600;
+      transition: background 0.2s;
+    }
+    .card a:hover {background:#7b46c7;}
+
+    /* CV / Contact */
+    .contact {text-align:center; margin-top:60px;}
+    .contact a {display:inline-block; padding:12px 20px; background:#5a2ea6; color:#fff; border-radius:8px; font-weight:600; transition:background 0.2s;}
+    .contact a:hover {background:#7b46c7;}
+
+    /* Footer */
+    footer {text-align:center; padding:30px 20px; color:#777; font-size:0.9rem;}
+  </style>
+</head>
+<body>
+
+  <!-- Header / Intro -->
+  <header>
+    <h1>Bonjour, je suis Jérôme Trébouclet</h1>
+    <p>Développeur Full stack – Je crée des applications modernes et performantes.</p>
   </header>
 
-  <!-- À propos -->
-  <section id="about" class="max-w-4xl mx-auto py-12 px-6">
-    <h2 class="text-2xl font-bold mb-4 text-blue-600">À propos</h2>
-    <p class="text-lg leading-relaxed">
-      Après 30 ans dans la restauration, j’ai choisi de me reconvertir dans le développement web. 
-      Aujourd’hui, je conçois des applications intuitives et performantes, avec une approche centrée sur l’utilisateur. 
-      Curieux, rigoureux et motivé, je cherche à rejoindre une équipe où je pourrais apprendre et contribuer à des projets concrets.
-    </p>
-  </section>
+  <!-- Section Projets -->
+  <section>
+    <h2>Mes Projets</h2>
+    <div class="container projects-grid">
 
-  <!-- Projets -->
-  <section id="projects" class="bg-white py-12">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-2xl font-bold mb-8 text-blue-600">Mes projets</h2>
-
-      <div class="grid md:grid-cols-2 gap-8">
-
-        <!-- Projet 1 -->
-        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-semibold mb-2">📚 Bookworm</h3>
-          <p class="mb-4 text-gray-700">
-            Application de gestion de bibliothèque avec reconnaissance OCR et intégration Google Books.
-          </p>
-          <div class="flex gap-3">
-            <a href="https://github.com/JeyTee81/MaBibliotheque" target="_blank" class="text-blue-600 font-medium hover:underline">Voir le code</a>
-          </div>
-        </div>
-
-        <!-- Projet 2 -->
-        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-semibold mb-2">🍽️ Gestion Restaurant</h3>
-          <p class="mb-4 text-gray-700">
-            Outil interne pour gérer tous les aspects d'un bar ou restaurant (personnel, stocks, menus, salles, tables, caisse...).
-          </p>
-          <div class="flex gap-3">
-            <a href="https://github.com/jeytee81/Easyrest" target="_blank" class="text-blue-600 font-medium hover:underline">Voir le code</a>
-          </div>
-        </div>
-
+      <!-- Projet Bookworm -->
+      <div class="card">
+        <img src="assets/bookworm_screenshot.png" alt="Bookworm">
+        <h3>📚 Bookworm</h3>
+        <p>Application de gestion de bibliothèque avec reconnaissance OCR et intégration Google Books.</p>
+        <a href="https://github.com/JeyTee81/MaBibliotheque" target="_blank" rel="noopener noreferrer">Voir le code</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">Démo</a>
       </div>
+
+      <!-- Exemple autre projet -->
+      <div class="card">
+        <img src="assets/easyrest_screenshot.png" alt="EasyRest Tablette">
+        <h3>📱 EasyRest </h3>
+        <p>Application multi_plateformes pour la gestion de bars et restaurants, interface intuitive et responsive.</p>
+        <a href="https://github.com/JeyTee81/easyrest" target="_blank" rel="noopener noreferrer">Voir le code</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">Démo</a>
+      </div>
+
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="max-w-4xl mx-auto py-12 px-6">
-    <h2 class="text-2xl font-bold mb-4 text-blue-600">Me contacter</h2>
-    <p class="text-lg mb-6">N’hésitez pas à me contacter pour échanger sur un projet ou une opportunité :</p>
-    <a href="mailto:jerome.trebouclet@gmail.com" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium">
-      📧 jerome.trebouclet@gmail.com
-    </a>
+  <!-- Section CV / Contact -->
+  <section class="contact">
+    <h2>Mon CV & Contact</h2>
+    <a href="cv cda.pdf" target="_blank" rel="noopener noreferrer">Voir mon CV</a>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 text-center py-6">
-    <p>© 2025 Jérôme TREBOUCLET – Portfolio personnel</p>
+  <footer>
+    © 2025 Jérôme Trébouclet – Tous droits réservés
   </footer>
 
 </body>
 </html>
+
