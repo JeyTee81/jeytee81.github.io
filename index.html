@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Jérôme Trébouclet</title>
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    * {margin:0; padding:0; box-sizing:border-box;}
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: 'Inter', sans-serif;
       background:#0d1117;
@@ -15,11 +17,11 @@
       line-height:1.6;
       overflow-x:hidden;
     }
-    a {text-decoration:none; color: inherit;}
-    h1,h2,h3 {font-weight:700;}
-    html {scroll-behavior: smooth;}
+    a { text-decoration:none; color: inherit; }
+    h1, h2, h3 { font-weight:700; }
+    html { scroll-behavior:smooth; }
 
-    /* Code background animation */
+    /* Background animation */
     .code-bg {
       position:fixed;
       top:0; left:0;
@@ -37,14 +39,13 @@
       animation: scrollCode 10s linear infinite;
     }
     @keyframes scrollCode {
-      0% { transform: translateY(100%);}
-      100% { transform: translateY(-100%);}
+      0% { transform: translateY(100%); }
+      100% { transform: translateY(-100%); }
     }
 
-    /* Container */
-    .container {max-width:1200px; margin:0 auto; padding:40px 20px;}
+    /* Layout */
+    .container { max-width:1200px; margin:0 auto; padding:40px 20px; }
 
-    /* Header / Intro */
     header {
       text-align:center;
       padding:80px 20px 60px;
@@ -52,241 +53,127 @@
       transform: translateY(20px);
       transition: opacity 1s, transform 1s;
     }
-    header.visible {opacity:1; transform: translateY(0);}
+    header.visible { opacity:1; transform:translateY(0); }
+
     header img {
       width:140px; height:140px;
-      border-radius:50%; object-fit:cover;
-      margin-bottom:20px; border:4px solid #58a6ff;
+      border-radius:50%;
+      object-fit:cover;
+      margin-bottom:20px;
+      border:4px solid #58a6ff;
     }
-    header h1 {font-size:2.8rem; color:#58a6ff; margin-bottom:10px; min-height:3.5rem;}
-    header p {font-size:1.2rem; color:#c9d1d9;}
+    header h1 { font-size:2.8rem; color:#58a6ff; margin-bottom:10px; }
 
-    /* Section Titles */
-    section h2 {text-align:center; font-size:2rem; margin-bottom:40px; color:#58a6ff;}
+    section h2 {
+      text-align:center;
+      font-size:2rem;
+      margin-bottom:40px;
+      color:#58a6ff;
+    }
 
-    /* Projects Grid */
-    .projects-grid {display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:30px;}
+    /* Cards */
+    .projects-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap:30px;
+    }
 
-    /* Project Card */
     .card {
       background:#161b22;
-      padding:20px; border-radius:12px;
+      padding:20px;
+      border-radius:12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
       transition: transform 0.3s, box-shadow 0.3s, opacity 0.6s;
       opacity:0;
       transform: translateY(30px);
     }
-    .card.visible {opacity:1; transform: translateY(0);}
-    .card:hover {transform: translateY(-5px); box-shadow: 0 8px 20px rgba(88,166,255,0.5);}
-    .card img {width:100%; border-radius:8px; margin-bottom:15px;}
-    .card h3 {margin-bottom:10px; font-size:1.3rem; color:#58a6ff;}
-    .card p {font-size:0.95rem; color:#c9d1d9; margin-bottom:15px;}
+    .card.visible { opacity:1; transform: translateY(0); }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(88,166,255,0.5);
+    }
+
+    .card img { width:100%; border-radius:8px; margin-bottom:15px; }
+    .card h3 { font-size:1.3rem; margin-bottom:10px; color:#58a6ff; }
+    .card p { font-size:0.95rem; margin-bottom:15px; }
+
     .card a {
-      display:inline-block; padding:8px 15px; margin-right:8px;
-      background:#58a6ff; color:#0d1117; border-radius:6px; font-weight:600;
+      display:inline-block;
+      padding:8px 15px;
+      margin-right:8px;
+      background:#58a6ff;
+      color:#0d1117;
+      border-radius:6px;
+      font-weight:600;
       transition: all 0.3s;
     }
-    .card a:hover {background:#1f6feb; transform: scale(1.05);}
+    .card a:hover { background:#1f6feb; transform:scale(1.05); }
 
-    /* CV / Contact */
-    .contact {text-align:center; margin-top:60px;}
+    /* Contact section */
+    .contact { text-align:center; margin-top:60px; }
     .contact a {
-      display:inline-block; padding:12px 20px; background:#58a6ff;
-      color:#0d1117; border-radius:8px; font-weight:600;
-      transition: all 0.3s; margin-top:10px;
+      display:inline-block;
+      padding:12px 20px;
+      background:#58a6ff;
+      color:#0d1117;
+      border-radius:8px;
+      font-weight:600;
+      margin-top:10px;
+      transition: all 0.3s;
     }
-    .contact a:hover {background:#1f6feb; transform: scale(1.05);}
+    .contact a:hover { background:#1f6feb; transform: scale(1.05); }
 
-    /* Footer */
-    footer {text-align:center; padding:30px 20px; color:#777; font-size:0.9rem;}
-  /* Fenêtre modale vidéo */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
-  justify-content: center;
-  align-items: center;
-}
+    footer {
+      text-align:center;
+      padding:30px 20px;
+      color:#777;
+      font-size:0.9rem;
+    }
 
-.modal-content {
-  position: relative;
-  max-width: 80%;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
+    /* Modal video */
+    .modal {
+      display:none;
+      position:fixed;
+      z-index:2000;
+      top:0; left:0;
+      width:100%; height:100%;
+      background-color:rgba(0,0,0,0.85);
+      justify-content:center;
+      align-items:center;
+    }
 
-.modal video {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-}
+    .modal-content {
+      position:relative;
+      max-width:80%;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 4px 20px rgba(0,0,0,0.3);
+    }
 
-/* Bouton de fermeture */
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  color: white;
-  font-size: 2rem;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 10;
-  transition: color 0.2s;
-}
+    .modal video {
+      width:100%;
+      border-radius:12px;
+      display:block;
+    }
 
-.close-btn:hover {
-  color: #58a6ff;
-}
-
+    .close-btn {
+      position:absolute;
+      top:10px;
+      right:20px;
+      color:white;
+      font-size:2rem;
+      cursor:pointer;
+      font-weight:bold;
+      z-index:10;
+    }
+    .close-btn:hover { color:#58a6ff; }
   </style>
 </head>
-<!-- 🎬 Fenêtre modale vidéo -->
+
+<!-- Modal Vidéo Globale -->
 <div id="videoModal" class="modal" onclick="closeVideo()">
   <div class="modal-content" onclick="event.stopPropagation()">
     <span class="close-btn" onclick="closeVideo()">&times;</span>
-    <video id="demoVideo" controls autoplay>
-      <source src="Nouvelle application de gestion de restaurant.mp4" type="video/mp4">
-      Votre navigateur ne supporte pas la lecture de vidéos.
-    </video>
-  </div>
-</div>
-
-<!-- ⚙️ Script pour ouvrir/fermer la vidéo -->
-<script>
-function openVideo(event) {
-  event.preventDefault();
-  document.getElementById("videoModal").style.display = "flex";
-}
-
-function closeVideo() {
-  const modal = document.getElementById("videoModal");
-  const video = document.getElementById("demoVideo");
-  modal.style.display = "none";
-  video.pause();
-}
-</script>
-
-  <body>
-
-  <!-- Code background -->
-  <div class="code-bg" id="code-bg"></div>
-
-  <!-- Header / Intro -->
-  <header id="header">
-    <img src="selfie.jpeg" alt="Jérôme Trébouclet">
-    <h1 id="typed-header"></h1>
-    <p>Développeur Full Stack – Je crée des applications modernes et performantes.</p>
-  </header>
-
-  <!-- Section Projets -->
-  <section>
-    <h2>Mes Projets</h2>
-    <div class="container projects-grid">
-
-      <div class="card">
-        <img src="assets/bookworm_screenshot.png" alt="Bookworm">
-        <h3>📚 Bookworm</h3>
-        <p>Application de gestion de bibliothèque avec reconnaissance OCR et intégration Google Books.</p>
-        <a href="https://github.com/JeyTee81/MaBibliotheque" target="_blank" rel="noopener noreferrer">Voir le code</a>
-        <a href="https://JeyTee81.github.io/MaBibliotheque/" target="_blank" rel="noopener noreferrer">Démo</a>
-      </div>
-
-      <div class="card">
-        <img src="assets/easyrest_screenshot.png" alt="EasyRest">
-        <h3>📱 EasyRest</h3>
-        <p>Application multi-plateformes pour la gestion de bars et restaurants, interface intuitive et responsive.</p>
-        <a href="https://github.com/JeyTee81/easyrest" target="_blank" rel="noopener noreferrer">Voir le code</a>
-        <a href="easyrest-demo.html" target="_blank" rel="noopener noreferrer">Voir la démo</a>
-      </div>
-      <div class="card">
-        <img src="assets/tempo_screenshot.png" alt="Tempo">
-        <h3>🕒 Tempo</h3>
-        <p> Application Flutter complète de gestion du temps et de l'information : 
-    <strong>agenda, contacts et articles</strong> reliés entre eux. 
-    Inclut un système de <strong>sauvegarde avancé</strong>, 
-    une <strong>recherche globale</strong> et une interface moderne Material 3</p>
-  <a href="https://github.com/Jeytee81/tempo" target="_blank" rel="noopener noreferrer">Voir le code</a>
-  <a href="https://jeytee81.github.io/Tempo_demoWeb" target="_blank" rel="noopener noreferrer">Voir la démo</a>
-</div>
-      <div class="card">
-  <img src="assets/miroitplus_screenshot.png" alt="Miroir+ Expert">
-  <h3>🪟 Miroir+ Expert</h3>
-  <p>
-    Application complète pour Miroiteries et Menuiseries.<br>
-    Comprend : <strong>Gestion Commerciale, Débits, Stocks, Menuiseries sur mesure,
-    Travaux/Chantiers, CRM, Planning du personnel, agendas, tournées</strong>.<br>
-    Frontend Flutter • Backend Django • API REST sécurisée.
-  </p>
-  <a href="https://github.com/JeyTee81/Miroit-" target="_blank" rel="noopener noreferrer">Voir le code</a>
-  <a href="#" onclick="openVideo(event)" rel="noopener noreferrer">Voir la démo</a>
-</div>
- <div class="card">
-  <img src="assets/loupsolitaire_cover.jpg" alt="Loup Solitaire Web">
-  <h3>📘 Loup Solitaire — Tome 1 (Version Web)</h3>
-  <p>Adaptation interactive Ren’Py Web du célèbre livre-jeu des années 80. Jouez directement dans le navigateur.</p>
-  <a href="https://jeytee81.github.io/LoupSolitaire/" target="_blank" rel="noopener noreferrer">Jouer</a>
-  <a href="https://github.com/jeytee81/LoupSolitaire" target="_blank">Voir le code</a>
-</div>
-    </div>
-   
-
-  </section>
-
-  <!-- Section CV / Contact -->
-  <section class="contact">
-    <h2>Mon CV & Contact</h2>
-    <a href="CV CDA.pdf" target="_blank" rel="noopener noreferrer">Voir mon CV</a>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    © 2025 Jérôme Trébouclet – Tous droits réservés
-  </footer>
-
-  <script>
-    // Fade-in du header
-    const header = document.getElementById('header');
-    window.addEventListener('load', () => {
-      header.classList.add('visible');
-    });
-
-    // Fade-in des cartes
-    const cards = document.querySelectorAll('.card');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
-    cards.forEach(card => observer.observe(card));
-
-    // Typed header
-    const headerText = "Bonjour, je suis Jérôme Trébouclet";
-    const typedHeader = document.getElementById('typed-header');
-    let i = 0;
-    function typeWriter() {
-      if(i < headerText.length){
-        typedHeader.innerHTML += headerText.charAt(i);
-        i++;
-        setTimeout(typeWriter, 80);
-      }
-    }
-    window.addEventListener('load', typeWriter);
-
-    // Code background
-    const codeBg = document.getElementById('code-bg');
-    const codeLines = [];
-    for(let i=0; i<50; i++){
-      codeLines.push('<span class="code-line">console.log("Hello World ' + i + '");</span>');
-    }
-    codeBg.innerHTML = codeLines.join('');
-  </script>
-
-</body>
-</html>
+    <video id="demoVideo" controls>
+      <source src="" type="video/mp4">
