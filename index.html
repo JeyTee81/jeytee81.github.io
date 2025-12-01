@@ -1,172 +1,395 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Jérôme Trébouclet</title>
 
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family:'Inter', sans-serif;
-      line-height:1.6;
-      background:#0d1117;
-      color:#e6edf3;
-      padding:20px;
+      font-family: 'Inter', sans-serif;
+      background: #0d1117;
+      color: #c9d1d9;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    h1, h2 { color:#61dafb; }
-
-    /* --------- Zones structurées --------- */
-    .section {
-      margin:40px auto;
-      max-width:1000px;
-      padding:20px;
-      background:#161b22;
-      border-radius:12px;
-      box-shadow:0 4px 20px rgba(0,0,0,0.3);
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    .project-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
-      gap:20px;
+    h1,
+    h2,
+    h3 {
+      font-weight: 700;
     }
 
-    .project-card {
-      background:#21262d;
-      padding:20px;
-      border-radius:12px;
-      box-shadow:0 2px 12px rgba(0,0,0,0.2);
-      transition:transform 0.2s;
-      cursor:pointer;
+    html {
+      scroll-behavior: smooth;
     }
-    .project-card:hover { transform:scale(1.03); background:#2b323b; }
 
-    .project-card h3 { margin-bottom:10px; color:#58a6ff; }
+    /* Code background animation */
+    .code-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      font-family: monospace;
+      font-size: 12px;
+      color: rgba(88, 166, 255, 0.05);
+      white-space: pre;
+      overflow: hidden;
+      pointer-events: none;
+    }
 
-    /* --------- MODAL VIDEO --------- */
+    .code-line {
+      display: block;
+      animation: scrollCode 10s linear infinite;
+    }
+
+    @keyframes scrollCode {
+      0% {
+        transform: translateY(100%);
+      }
+
+      100% {
+        transform: translateY(-100%);
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 80px 20px 60px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s, transform 1s;
+    }
+
+    header.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    header img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid #58a6ff;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      color: #58a6ff;
+      margin-bottom: 10px;
+      min-height: 3.5rem;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #58a6ff;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #161b22;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s, opacity 0.6s;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(88, 166, 255, 0.5);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+      color: #58a6ff;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #c9d1d9;
+      margin-bottom: 15px;
+    }
+
+    .card a {
+      display: inline-block;
+      padding: 8px 15px;
+      margin-right: 8px;
+      background: #58a6ff;
+      color: #0d1117;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .card a:hover {
+      background: #1f6feb;
+      transform: scale(1.05);
+    }
+
+    /* CV */
+    .contact {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .contact a {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #58a6ff;
+      color: #0d1117;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s;
+      margin-top: 10px;
+    }
+
+    .contact a:hover {
+      background: #1f6feb;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    /* Modal */
     .modal {
-      display:none;
-      position:fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background:rgba(0,0,0,0.85);
-      justify-content:center;
-      align-items:center;
-      padding:20px;
-      z-index:9999;
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
     }
-
-    .modal.show { display:flex; }
 
     .modal-content {
-      position:relative;
-      width:100%;
-      max-width:1000px;
-      background:#000;
-      border-radius:12px;
-      overflow:hidden;
+      position: relative;
+      max-width: 80%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
     .modal video {
-      width:100%;
-      height:auto;
-      display:block;
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
     }
 
     .close-btn {
-      position:absolute;
-      top:10px;
-      right:15px;
-      font-size:32px;
-      color:white;
-      cursor:pointer;
-      z-index:20;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 10;
+      transition: color 0.2s;
     }
-    .close-btn:hover { color:#61dafb; }
+
+    .close-btn:hover {
+      color: #58a6ff;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- ---------- MODALE VIDEO (fonctionnelle) ---------- -->
+  <!-- Modal Video (unique) -->
   <div id="videoModal" class="modal" onclick="closeVideo()">
     <div class="modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="closeVideo()">&times;</span>
-      <video id="demoVideo" controls preload="metadata">
-        <source id="demoSource" src="" type="video/mp4">
+      <video id="demoVideo" controls autoplay>
+        <source id="videoSource" src="" type="video/mp4">
       </video>
     </div>
   </div>
 
-  <!-- ---------- HEADER ---------- -->
-  <header style="text-align:center; margin-bottom:30px;">
-    <h1>Portfolio – Jérôme Trébouclet</h1>
-    <p>Développeur Flutter • Mobile • Fullstack</p>
+  <!-- Background -->
+  <div class="code-bg" id="code-bg"></div>
+
+  <!-- Header -->
+  <header id="header">
+    <img src="selfie.jpeg" alt="Jérôme Trébouclet">
+    <h1 id="typed-header"></h1>
+    <p>Développeur Full Stack – Je crée des applications modernes et performantes.</p>
   </header>
 
-  <!-- ---------- PROJETS ---------- -->
-  <section class="section">
+  <!-- Projects -->
+  <section>
     <h2>Mes Projets</h2>
 
-    <div class="project-grid">
+    <div class="container projects-grid">
 
-      <!-- -------- Projet Miroit+ Expert -------- -->
-      <div class="project-card"
-           onclick="openVideo(event, 'Miroitexpert.mp4')">
-        <h3>Miroit+ Expert</h3>
-        <p>Suite logicielle moderne pour la miroiterie – UX industrielle, modules professionnels, interface performante.</p>
+      <!-- Bookworm -->
+      <div class="card">
+        <img src="assets/bookworm_screenshot.png" alt="Bookworm">
+        <h3>📚 Bookworm</h3>
+        <p>Application de gestion de bibliothèque avec reconnaissance OCR et intégration Google Books.</p>
+        <a href="https://github.com/JeyTee81/MaBibliotheque" target="_blank">Voir le code</a>
+        <a href="https://JeyTee81.github.io/MaBibliotheque/" target="_blank">Démo</a>
       </div>
 
-      <!-- -------- Projet EasyRest -------- -->
-      <div class="project-card"
-           onclick="openVideo(event, 'Nouvelle application de gestion de restaurant.mp4')">
-        <h3>EasyRest</h3>
-        <p>Système avancé de gestion de restaurant – commandes, planning, facturation, gestion complète.</p>
+      <!-- EasyRest -->
+      <div class="card">
+        <img src="assets/easyrest_screenshot.png" alt="EasyRest">
+        <h3>📱 EasyRest</h3>
+        <p>Application multi-plateformes pour la gestion de bars et restaurants.</p>
+        <a href="https://github.com/JeyTee81/easyrest" target="_blank">Voir le code</a>
+        <a href="#" onclick="openVideo('Nouvelle application de gestion de restaurant.mp4'); return false;">Voir la démo</a>
+      </div>
+
+      <!-- Tempo -->
+      <div class="card">
+        <img src="assets/tempo_screenshot.png" alt="Tempo">
+        <h3>🕒 Tempo</h3>
+        <p>Application Flutter complète de gestion du temps et de l'information.</p>
+        <a href="https://github.com/JeyTee81/tempo" target="_blank">Voir le code</a>
+        <a href="https://jeytee81.github.io/Tempo_demoWeb" target="_blank">Voir la démo</a>
+      </div>
+
+      <!-- Miroit+ -->
+      <div class="card">
+        <img src="assets/miroitplus_screenshot.png" alt="Miroir+ Expert">
+        <h3>🪟 Miroir+ Expert</h3>
+        <p>Application complète pour Miroiteries et Menuiseries.</p>
+        <a href="https://github.com/JeyTee81/Miroit-" target="_blank">Voir le code</a>
+        <a href="#" onclick="openVideo('Miroitexpert.mp4'); return false;">Voir la démo</a>
+      </div>
+
+      <!-- Loup Solitaire -->
+      <div class="card">
+        <img src="assets/loupsolitaire_cover.jpg" alt="Loup Solitaire Web">
+        <h3>📘 Loup Solitaire — Tome 1 (Web)</h3>
+        <p>Adaptation interactive Ren’Py Web jouable dans le navigateur.</p>
+        <a href="https://jeytee81.github.io/LoupSolitaire/" target="_blank">Jouer</a>
+        <a href="https://github.com/jeytee81/LoupSolitaire" target="_blank">Voir le code</a>
       </div>
 
     </div>
   </section>
 
-  <!-- ---------- SCRIPT VIDEO ---------- -->
+  <!-- CV -->
+  <section class="contact">
+    <h2>Mon CV & Contact</h2>
+    <a href="CV CDA.pdf" target="_blank">Voir mon CV</a>
+  </section>
+
+  <footer>
+    © 2025 Jérôme Trébouclet – Tous droits réservés
+  </footer>
+
   <script>
-    function openVideo(event, videoFile) {
-      event?.preventDefault();
+    /* Header fade-in */
+    window.addEventListener('load', () => {
+      document.getElementById('header').classList.add('visible');
+    });
 
-      const modal = document.getElementById('videoModal');
-      const video = document.getElementById('demoVideo');
-      const source = document.getElementById('demoSource');
+    /* Cards fade-in */
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
 
-      if (!videoFile) return;
+    cards.forEach(card => observer.observe(card));
 
-      source.src = videoFile;
-      video.load();
-
-      modal.classList.add('show');
-      modal.setAttribute('aria-hidden', 'false');
-
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {});
+    /* Typed text */
+    const headerText = "Bonjour, je suis Jérôme Trébouclet";
+    let index = 0;
+    function typeHeader() {
+      if (index < headerText.length) {
+        document.getElementById('typed-header').innerHTML += headerText.charAt(index);
+        index++;
+        setTimeout(typeHeader, 80);
       }
+    }
+    window.onload = typeHeader;
+
+    /* Background code effect */
+    const codeBg = document.getElementById('code-bg');
+    let lines = [];
+    for (let i = 0; i < 50; i++) {
+      lines.push(`<span class="code-line">console.log("Hello World ${i}");</span>`);
+    }
+    codeBg.innerHTML = lines.join('');
+
+    /* Video Modal Logic */
+    function openVideo(file) {
+      const modal = document.getElementById("videoModal");
+      const video = document.getElementById("demoVideo");
+      const source = document.getElementById("videoSource");
+
+      source.src = file;
+      video.load();
+      video.play();
+
+      modal.style.display = "flex";
     }
 
     function closeVideo() {
-      const modal = document.getElementById('videoModal');
-      const video = document.getElementById('demoVideo');
-      const source = document.getElementById('demoSource');
+      const modal = document.getElementById("videoModal");
+      const video = document.getElementById("demoVideo");
 
-      modal.classList.remove('show');
-      modal.setAttribute('aria-hidden', 'true');
-
+      modal.style.display = "none";
       video.pause();
-      video.currentTime = 0;
-
-      source.src = "";
-      video.load();
     }
   </script>
 
