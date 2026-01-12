@@ -29,9 +29,7 @@
       color: inherit;
     }
 
-    h1,
-    h2,
-    h3 {
+    h1, h2, h3 {
       font-weight: 700;
     }
 
@@ -61,13 +59,8 @@
     }
 
     @keyframes scrollCode {
-      0% {
-        transform: translateY(100%);
-      }
-
-      100% {
-        transform: translateY(-100%);
-      }
+      0% { transform: translateY(100%); }
+      100% { transform: translateY(-100%); }
     }
 
     .container {
@@ -76,7 +69,6 @@
       padding: 40px 20px;
     }
 
-    /* Header */
     header {
       text-align: center;
       padding: 80px 20px 60px;
@@ -153,14 +145,12 @@
 
     .card p {
       font-size: 0.95rem;
-      color: #c9d1d9;
       margin-bottom: 15px;
     }
 
     .card a {
       display: inline-block;
       padding: 8px 15px;
-      margin-right: 8px;
       background: #58a6ff;
       color: #0d1117;
       border-radius: 6px;
@@ -173,7 +163,6 @@
       transform: scale(1.05);
     }
 
-    /* CV */
     .contact {
       text-align: center;
       margin-top: 60px;
@@ -187,7 +176,6 @@
       border-radius: 8px;
       font-weight: 600;
       transition: all 0.3s;
-      margin-top: 10px;
     }
 
     .contact a:hover {
@@ -201,131 +189,70 @@
       color: #777;
       font-size: 0.9rem;
     }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.85);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      position: relative;
-      max-width: 80%;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .modal video {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 12px;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      color: white;
-      font-size: 2rem;
-      font-weight: bold;
-      cursor: pointer;
-      z-index: 10;
-      transition: color 0.2s;
-    }
-
-    .close-btn:hover {
-      color: #58a6ff;
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- Modal Video (unique) -->
-  <div id="videoModal" class="modal" onclick="closeVideo()">
-    <div class="modal-content" onclick="event.stopPropagation()">
-      <span class="close-btn" onclick="closeVideo()">&times;</span>
-      <video id="demoVideo" controls autoplay>
-        <source id="videoSource" src="" type="video/mp4">
-      </video>
-    </div>
-  </div>
-
-  <!-- Background -->
   <div class="code-bg" id="code-bg"></div>
 
-  <!-- Header -->
   <header id="header">
     <img src="selfie.jpeg" alt="Jérôme Trébouclet">
     <h1 id="typed-header"></h1>
-    <p>Développeur Full Stack – Je crée des applications modernes et performantes.</p>
+    <p>Développeur Full Stack – Applications, IA locale et expériences interactives.</p>
   </header>
 
-  <!-- Projects -->
   <section>
     <h2>Mes Projets</h2>
 
     <div class="container projects-grid">
 
+      <!-- IA Alice -->
+      <div class="card">
+        <img src="assets/aliceia_placeholder.png" alt="IA Alice">
+        <h3>🤖 IA Personnelle — Alice</h3>
+        <p>
+          Intelligence artificielle locale et émotionnelle connectée à un avatar 3D Unity.
+          Mémoire, états émotionnels, API Python et incarnation temps réel.
+        </p>
+        <a href="https://github.com/JeyTee81/AliceIA" target="_blank">Voir le code</a>
+      </div>
+
       <!-- Bookworm -->
       <div class="card">
         <img src="assets/bookworm_screenshot.png" alt="Bookworm">
         <h3>📚 Bookworm</h3>
-        <p>Application de gestion de bibliothèque avec reconnaissance OCR et intégration Google Books.</p>
+        <p>Application de gestion de bibliothèque avec OCR et Google Books.</p>
         <a href="https://github.com/JeyTee81/MaBibliotheque" target="_blank">Voir le code</a>
-       
       </div>
 
       <!-- EasyRest -->
       <div class="card">
         <img src="assets/easyrest_screenshot.png" alt="EasyRest">
         <h3>📱 EasyRest</h3>
-        <p>Application multi-plateformes pour la gestion de bars et restaurants.</p>
+        <p>Application multi-plateformes pour bars et restaurants.</p>
         <a href="https://github.com/JeyTee81/easyrest" target="_blank">Voir le code</a>
-        <a href="#" onclick="openVideo('Nouvelle application de gestion de restaurant.mp4'); return false;">Voir la démo</a>
       </div>
 
       <!-- Tempo -->
       <div class="card">
         <img src="assets/tempo_screenshot.png" alt="Tempo">
         <h3>🕒 Tempo</h3>
-        <p>Application Flutter complète de gestion du temps et de l'information.</p>
+        <p>Application Flutter de gestion du temps et de l’information.</p>
         <a href="https://github.com/JeyTee81/tempo" target="_blank">Voir le code</a>
-        <a href="https://jeytee81.github.io/Tempo_demoWeb" target="_blank">Voir la démo</a>
-      </div>
-
-      <!-- Miroit+ -->
-      <div class="card">
-        <img src="assets/miroitplus_screenshot.png" alt="Miroir+ Expert">
-        <h3>🪟 Miroir+ Expert</h3>
-        <p>Application complète pour Miroiteries et Menuiseries.</p>
-        <a href="https://github.com/JeyTee81/Miroit-" target="_blank">Voir le code</a>
-        <a href="#" onclick="openVideo('Miroitexpert.mp4'); return false;">Voir la démo</a>
       </div>
 
       <!-- Loup Solitaire -->
       <div class="card">
-        <img src="assets/loupsolitaire_cover.jpg" alt="Loup Solitaire Web">
-        <h3>📘 Loup Solitaire — Tome 1 (Web)</h3>
-        <p>Adaptation interactive Ren’Py Web jouable dans le navigateur.</p>
+        <img src="assets/loupsolitaire_cover.jpg" alt="Loup Solitaire">
+        <h3>📘 Loup Solitaire (Web)</h3>
+        <p>Adaptation interactive Ren’Py jouable en ligne.</p>
         <a href="https://jeytee81.github.io/LoupSolitaire/" target="_blank">Jouer</a>
-        <a href="https://github.com/jeytee81/LoupSolitaire" target="_blank">Voir le code</a>
       </div>
 
     </div>
   </section>
 
-  <!-- CV -->
   <section class="contact">
     <h2>Mon CV & Contact</h2>
     <a href="CV CDA.pdf" target="_blank">Voir mon CV</a>
@@ -336,14 +263,12 @@
   </footer>
 
   <script>
-    /* Header fade-in */
     window.addEventListener('load', () => {
       document.getElementById('header').classList.add('visible');
     });
 
-    /* Cards fade-in */
     const cards = document.querySelectorAll('.card');
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
@@ -351,7 +276,6 @@
 
     cards.forEach(card => observer.observe(card));
 
-    /* Typed text */
     const headerText = "Bonjour, je suis Jérôme Trébouclet";
     let index = 0;
     function typeHeader() {
@@ -363,34 +287,12 @@
     }
     window.onload = typeHeader;
 
-    /* Background code effect */
     const codeBg = document.getElementById('code-bg');
     let lines = [];
     for (let i = 0; i < 50; i++) {
-      lines.push(`<span class="code-line">console.log("Hello World ${i}");</span>`);
+      lines.push(`<span class="code-line">console.log("AI running ${i}");</span>`);
     }
     codeBg.innerHTML = lines.join('');
-
-    /* Video Modal Logic */
-    function openVideo(file) {
-      const modal = document.getElementById("videoModal");
-      const video = document.getElementById("demoVideo");
-      const source = document.getElementById("videoSource");
-
-      source.src = file;
-      video.load();
-      video.play();
-
-      modal.style.display = "flex";
-    }
-
-    function closeVideo() {
-      const modal = document.getElementById("videoModal");
-      const video = document.getElementById("demoVideo");
-
-      modal.style.display = "none";
-      video.pause();
-    }
   </script>
 
 </body>
