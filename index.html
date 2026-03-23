@@ -1,5 +1,3 @@
-voici l'index.html de mon porfolio, modifie la carte mindflow pour rajouter un bouton demo et l'envoyer vers https://mind-flow-swart.vercel.app
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -120,7 +118,6 @@ voici l'index.html de mon porfolio, modifie la carte mindflow pour rajouter un b
 
     .card a:hover { background: #1f6feb; }
 
-    /* FEATURED */
     .featured {
       grid-column: span 2;
       border: 2px solid #58a6ff;
@@ -175,7 +172,6 @@ voici l'index.html de mon porfolio, modifie la carte mindflow pour rajouter un b
 
 <div class="container projects-grid">
 
-<!-- ===== FEATURED : Freedom & Glory ===== -->
 <div class="card featured">
   <span class="badge-steam">Disponible sur Steam</span>
   <img src="assets/freedom_glory_cover.jpg" alt="Freedom & Glory">
@@ -190,7 +186,6 @@ voici l'index.html de mon porfolio, modifie la carte mindflow pour rajouter un b
   </a>
 </div>
 
-<!-- IA Alice -->
 <div class="card">
   <img src="assets/aliceia_placeholder.png" alt="IA Alice">
   <h3>🤖 IA Personnelle — Alice</h3>
@@ -201,7 +196,6 @@ voici l'index.html de mon porfolio, modifie la carte mindflow pour rajouter un b
   <a href="https://github.com/JeyTee81/AliceIA" target="_blank">Voir le code</a>
 </div>
 
-<!-- Bookworm -->
 <div class="card">
   <img src="assets/bookworm_screenshot.png" alt="Bookworm">
   <h3>📚 Bookworm</h3>
@@ -209,7 +203,6 @@ voici l'index.html de mon porfolio, modifie la carte mindflow pour rajouter un b
   <a href="https://github.com/JeyTee81/MaBibliotheque" target="_blank">Voir le code</a>
 </div>
 
-<!-- EasyRest -->
 <div class="card">
   <img src="assets/easyrest_screenshot.png" alt="EasyRest">
   <h3>📱 EasyRest</h3>
@@ -217,7 +210,6 @@ voici l'index.html de mon porfolio, modifie la carte mindflow pour rajouter un b
   <a href="https://github.com/JeyTee81/easyrest" target="_blank">Voir le code</a>
 </div>
 
-<!-- Tempo -->
 <div class="card">
   <img src="assets/tempo_screenshot.png" alt="Tempo">
   <h3>🕒 Tempo</h3>
@@ -225,7 +217,6 @@ voici l'index.html de mon porfolio, modifie la carte mindflow pour rajouter un b
   <a href="https://github.com/JeyTee81/tempo" target="_blank">Voir le code</a>
 </div>
 
-<!-- Miroit+ -->
 <div class="card">
   <img src="assets/miroitplus_screenshot.png" alt="Miroit+">
   <h3>🪟 Miroit+ Expert</h3>
@@ -233,7 +224,6 @@ voici l'index.html de mon porfolio, modifie la carte mindflow pour rajouter un b
   <a href="https://github.com/JeyTee81/Miroit-" target="_blank">Voir le code</a>
 </div>
 
-<!-- Loup Solitaire -->
 <div class="card">
   <img src="assets/loupsolitaire_cover.jpg" alt="Loup Solitaire">
   <h3>📘 Loup Solitaire (Web)</h3>
@@ -241,337 +231,7 @@ voici l'index.html de mon porfolio, modifie la carte mindflow pour rajouter un b
   <a href="https://jeytee81.github.io/LoupSolitaire/" target="_blank">Jouer</a>
 </div>
 
-<!-- MindFlow -->
-<div class="card">
-  <img src="assets/mindflow_placeholder.png" alt="MindFlow">
-  <h3>🧠 MindFlow</h3>
-  <p>Second brain visuel alimenté par IA et graphes interactifs.</p>
-  <a href="https://github.com/JeyTee81/MindFlow" target="_blank">Voir le code</a>
-</div>
-
-</div>
-</section>
-
-<section class="contact">
-  <h2>Mon CV & Contact</h2>
-  <a href="CV CDA.pdf" target="_blank">Voir mon CV</a>
-</section>
-
-<footer>
-© 2025 Jérôme Trébouclet – Tous droits réservés
-</footer>
-
-<script>
-window.addEventListener('load', () => {
-  document.getElementById('header').classList.add('visible');
-});
-
-const cards = document.querySelectorAll('.card');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
-},{ threshold:.2 });
-
-cards.forEach(c => observer.observe(c));
-
-const text = "Bonjour, je suis Jérôme Trébouclet";
-let i = 0;
-(function type(){
-  if(i<text.length){
-    document.getElementById('typed-header').innerHTML += text[i++];
-    setTimeout(type,80);
-  }
-})();
-</script>
-
-</body>
-</html>
-
-Tu es déjà très propre 👍 — on va juste ajouter un bouton “Démo” dans la carte MindFlow sans casser ton design.
-
-👉 Modifie uniquement ce bloc :
-
-<!-- MindFlow -->
-<div class="card">
-  <img src="assets/mindflow_placeholder.png" alt="MindFlow">
-  <h3>🧠 MindFlow</h3>
-  <p>Second brain visuel alimenté par IA et graphes interactifs.</p>
-
-  <a href="https://github.com/JeyTee81/MindFlow" target="_blank">Voir le code</a>
-  <a href="https://mind-flow-swart.vercel.app" target="_blank">Démo</a>
-</div>
-
-💡 Option bonus (recommandé)
-
-Si tu veux que le bouton Démo ressorte visuellement, tu peux ajouter une variante CSS :
-
-.card a.demo {
-  background: #22c55e;
-  color: #0d1117;
-}
-
-.card a.demo:hover {
-  background: #16a34a;
-}
-
-Et modifier le bouton :
-
-<a href="https://mind-flow-swart.vercel.app" target="_blank" class="demo">Démo</a>
-
-🔥 Impact UX
-
-    “Voir le code” = crédibilité dev
-
-    “Démo” = conversion recruteur 🔥
-    👉 C’est exactement ce que tu veux pour un projet comme MindFlow
-
-Si tu veux, je peux t’optimiser toute la section projet pour la rendre encore plus LinkedIn / recruteur-friendly (effet wow en 5 secondes).
-
-redonne tout le index.html sans rien modifier d'autre
-
-Voici ton index.html complet, avec uniquement l’ajout du bouton Démo sur MindFlow, rien d’autre modifié :
-
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Jérôme Trébouclet</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0d1117;
-      color: #c9d1d9;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a { text-decoration: none; color: inherit; }
-    h1, h2, h3 { font-weight: 700; }
-    html { scroll-behavior: smooth; }
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    header {
-      text-align: center;
-      padding: 80px 20px 60px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: 1s;
-    }
-
-    header.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: 4px solid #58a6ff;
-      margin-bottom: 20px;
-    }
-
-    header h1 {
-      font-size: 2.8rem;
-      color: #58a6ff;
-      min-height: 3.5rem;
-    }
-
-    section h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 40px;
-      color: #58a6ff;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .card {
-      background: #161b22;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,.3);
-      transition: .3s;
-      opacity: 0;
-      transform: translateY(30px);
-      position: relative;
-    }
-
-    .card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 25px rgba(88,166,255,.5);
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      color: #58a6ff;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      font-size: .95rem;
-      margin-bottom: 15px;
-    }
-
-    .card a {
-      padding: 8px 15px;
-      background: #58a6ff;
-      color: #0d1117;
-      border-radius: 6px;
-      font-weight: 600;
-      display: inline-block;
-      margin-right: 5px;
-    }
-
-    .card a:hover { background: #1f6feb; }
-
-    /* FEATURED */
-    .featured {
-      grid-column: span 2;
-      border: 2px solid #58a6ff;
-      background: linear-gradient(135deg, #161b22, #0d1117);
-    }
-
-    .badge-steam {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: #1b2838;
-      color: #66c0f4;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: .75rem;
-      font-weight: 700;
-      border: 1px solid #66c0f4;
-    }
-
-    .contact {
-      text-align: center;
-      margin-top: 60px;
-    }
-
-    .contact a {
-      padding: 12px 20px;
-      background: #58a6ff;
-      color: #0d1117;
-      border-radius: 8px;
-      font-weight: 600;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: .9rem;
-      color: #777;
-    }
-  </style>
-</head>
-
-<body>
-
-<header id="header">
-  <img src="selfie.jpeg" alt="Jérôme Trébouclet">
-  <h1 id="typed-header"></h1>
-  <p>Développeur Full Stack – IA, jeux et expériences interactives</p>
-</header>
-
-<section>
-<h2>Mes Projets</h2>
-
-<div class="container projects-grid">
-
-<!-- ===== FEATURED : Freedom & Glory ===== -->
-<div class="card featured">
-  <span class="badge-steam">Disponible sur Steam</span>
-  <img src="assets/freedom_glory_cover.jpg" alt="Freedom & Glory">
-  <h3>⚓ Freedom & Glory</h3>
-  <p>
-    Jeu narratif et stratégique historique (1492).  
-    Batailles navales, exploration et immersion sonore authentique.  
-    Contribution : développement & composition musicale originale.
-  </p>
-  <a href="https://store.steampowered.com/app/4113450/Freedom__Glory/" target="_blank">
-    Voir la page Steam
-  </a>
-</div>
-
-<!-- IA Alice -->
-<div class="card">
-  <img src="assets/aliceia_placeholder.png" alt="IA Alice">
-  <h3>🤖 IA Personnelle — Alice</h3>
-  <p>
-    Intelligence artificielle locale et émotionnelle connectée à un avatar 3D Unity.
-    Mémoire, états émotionnels et API dédiée.
-  </p>
-  <a href="https://github.com/JeyTee81/AliceIA" target="_blank">Voir le code</a>
-</div>
-
-<!-- Bookworm -->
-<div class="card">
-  <img src="assets/bookworm_screenshot.png" alt="Bookworm">
-  <h3>📚 Bookworm</h3>
-  <p>Application de gestion de bibliothèque avec OCR et Google Books.</p>
-  <a href="https://github.com/JeyTee81/MaBibliotheque" target="_blank">Voir le code</a>
-</div>
-
-<!-- EasyRest -->
-<div class="card">
-  <img src="assets/easyrest_screenshot.png" alt="EasyRest">
-  <h3>📱 EasyRest</h3>
-  <p>Application multi-plateformes pour bars et restaurants.</p>
-  <a href="https://github.com/JeyTee81/easyrest" target="_blank">Voir le code</a>
-</div>
-
-<!-- Tempo -->
-<div class="card">
-  <img src="assets/tempo_screenshot.png" alt="Tempo">
-  <h3>🕒 Tempo</h3>
-  <p>Application Flutter de gestion du temps et de l’information.</p>
-  <a href="https://github.com/JeyTee81/tempo" target="_blank">Voir le code</a>
-</div>
-
-<!-- Miroit+ -->
-<div class="card">
-  <img src="assets/miroitplus_screenshot.png" alt="Miroit+">
-  <h3>🪟 Miroit+ Expert</h3>
-  <p>Application métier complète pour miroiteries et menuiseries.</p>
-  <a href="https://github.com/JeyTee81/Miroit-" target="_blank">Voir le code</a>
-</div>
-
-<!-- Loup Solitaire -->
-<div class="card">
-  <img src="assets/loupsolitaire_cover.jpg" alt="Loup Solitaire">
-  <h3>📘 Loup Solitaire (Web)</h3>
-  <p>Adaptation interactive Ren’Py jouable en ligne.</p>
-  <a href="https://jeytee81.github.io/LoupSolitaire/" target="_blank">Jouer</a>
-</div>
-
-<!-- MindFlow -->
+<!-- MindFlow MODIFIÉ -->
 <div class="card">
   <img src="assets/mindflow_placeholder.png" alt="MindFlow">
   <h3>🧠 MindFlow</h3>
@@ -616,5 +276,3 @@ let i = 0;
 
 </body>
 </html>
-
-
